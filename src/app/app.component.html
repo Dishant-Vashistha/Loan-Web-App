@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-image: linear-gradient(to bottom right,rgb(32, 31, 36),rgb(75, 153, 226));">
+  <a class="navbar-brand" routerLink="/home">V-Financing</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/register-user" data-toggle="modal" data-target="#myModal">SignIn/SignUp<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/home">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,69 @@
+<div class="login-page">
+
+    <h1 class="text-capitalize text-center m-0  " style="background-color: yellow; border-style: solid;">Loan Rate</h1>
+    <p class="text-capitalize text-center m-0" style="background-color: red;border-style: solid;">Loan Rate is 14.75% if Principal Amount is greater than Rs.1 lakh</p>
+    <p class="text-capitalize text-center m-0" style="background-color: green;border-style: solid;">Loan Rate is 12.75% if Principal Amount is greater than Rs.5 lakh</p>
+    <p class="text-capitalize text-center m-0" style="background-color: wheat;border-style:solid;">Loan Rate is 10.75% if Principal Amount is greater than Rs.10 lakh</p>
+
+    <mat-card class="mat-elevation-z12 mat1">
+        <mat-card-title style="text-align:center;">Loan Register</mat-card-title>
+        
+          
+              <mat-card-content class="mat3">
+                <form action="">
+                  <mat-form-field class="mat2">
+                    <input
+                      matInput
+                      placeholder="Loan Amount"
+                      type="number"
+                      required
+                      name="Amount"
+                      ngModel
+                      #Amount="ngModel">
+                      <mat-error
+                      *ngIf="Amount.errors.required">
+                      Amount is required
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="mat2">
+                    <input
+                      matInput
+                      placeholder="Rate without %"
+                      type="number"
+                      required
+                      
+                      name="rate"
+                      ngModel
+                      #rate="ngModel">
+                      <mat-error
+                      *ngIf="rate.errors.required">
+                      Rate is required
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="mat2">
+                    <input
+                      matInput
+                      placeholder="Time in Years"
+                      type="number"
+                      required
+                      name="time"
+                      ngModel
+                      #time="ngModel">
+                      <mat-error
+                      *ngIf="time.errors.required">
+                      Time is required
+                    </mat-error>
+                  </mat-form-field>
+                  
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="login-button">
+                    Apply
+                  </button>
+    
+                  
+                </form>
+              </mat-card-content>
+      </mat-card>
+    </div>

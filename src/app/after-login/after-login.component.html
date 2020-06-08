@@ -1,0 +1,100 @@
+<div class="jumbotron mb-0 ">
+    <section >
+      <div class="container">
+          <h1 class="text-capitalize text-center pt-2">Various Loans</h1>
+          <hr class="w-25 pt-5 mx-auto" style="border-color: black">
+      
+      <div class="row text-center">
+          <div class="col-lg-4 col-sm-12 col-md-4" >
+          <div class="card" >
+            <img class="card-img-top" src="../assets/cloan.png" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Car Loan</h4>
+              <p class="card-text">We provide you car loan at cheaper rate of interest and less Documentation
+                <br>
+                <br>
+              </p>
+              <!--<a href="#" class="btn btn-primary">See Profile</a>-->
+            </div>
+          </div>
+          </div>
+              <div class="col-lg-4 col-sm-12 col-md-4">
+          <div class="card" >
+            <img class="card-img-top" src="../assets/hloan.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Home Loan</h4>
+              <p class="card-text">We provide you home Loans at very economical rate of interest and less liability.
+                <br>
+              </p>
+              <!--<a href="#" class="btn btn-primary">See Profile</a>-->
+            </div>
+          </div>
+          </div>
+              <div class="col-lg-4 col-sm-12 col-md-4">
+          <div class="card" >
+            <img class="card-img-top" src="../assets/eloan.png" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Education Loan</h4>
+              <p class="card-text">Money should not be a barrier in Education.We Provide you study loan at cheaper rates and less Documentation</p>
+              <!--<a href="#" class="btn btn-primary">See Profile</a>-->
+            </div>
+          </div>
+          </div>
+      
+      </div>
+      </div>
+    
+      </section>
+
+    <section>
+        <div class="container mt-2 text-center">
+        
+            <button type="button" routerLink='/loan-register' class="btn btn-warning justify-content-center m-1" >Loan Registration</button>
+        
+            <button type="button" class="btn btn-warning justify-content-center m-1" data-toggle="modal" data-target="#myModal">Loan Calculator</button>
+        
+            <button type="button" class="btn btn-warning justify-content-center m-1">Loan History</button>
+        
+        </div>
+    </section>
+</div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-center">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header bg-primary">
+          <h4 class="modal-title st">Loan-Calculator</h4>
+          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <label for="amount">Loan Amount:</label>
+              <input type="number" class="form-control" placeholder="Enter Loan Amount" id="amount" name="amount" [(ngModel)]="loan">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Rate:</label>
+              <input type="number" class="form-control" placeholder="Enter Rate without %" id="pwd" name="pwd" [(ngModel)]="rate">
+            </div>
+            <div class="form-group">
+                <label for="time">Timeperiod:</label>
+                <input type="number" class="form-control" placeholder="Enter Time in years" id="time" name="time" [(ngModel)]="time">
+              </div>
+            
+            <button type="submit" id="signup" class="btn btn-warning" (click)="findLoan()">Result</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer bg-primary">
+          <li id="result" *ngIf='isValid'>Your Final Amount is - {{result}}</li>
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
