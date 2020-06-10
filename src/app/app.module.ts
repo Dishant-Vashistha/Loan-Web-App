@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +16,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AfterLoginComponent } from './after-login/after-login.component';
 import { LoanRegisterComponent } from './loan-register/loan-register.component';
+import { CommonModule } from '@angular/common';
+import { MenuComponent } from './menu/menu.component';
+import { LogoutComponent } from './logout/logout.component';
+import { LoanHistoryComponent } from './loan-history/loan-history.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +30,10 @@ import { LoanRegisterComponent } from './loan-register/loan-register.component';
     AboutComponent,
     RegisterUserComponent,
     AfterLoginComponent,
-    LoanRegisterComponent
+    LoanRegisterComponent,
+    MenuComponent,
+    LogoutComponent,
+    LoanHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,10 @@ import { LoanRegisterComponent } from './loan-register/loan-register.component';
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

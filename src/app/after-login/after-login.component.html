@@ -5,42 +5,18 @@
           <hr class="w-25 pt-5 mx-auto" style="border-color: black">
       
       <div class="row text-center">
-          <div class="col-lg-4 col-sm-12 col-md-4" >
-          <div class="card" >
-            <img class="card-img-top" src="../assets/cloan.png" alt="Card image">
-            <div class="card-body">
-              <h4 class="card-title">Car Loan</h4>
-              <p class="card-text">We provide you car loan at cheaper rate of interest and less Documentation
-                <br>
-                <br>
-              </p>
-              <!--<a href="#" class="btn btn-primary">See Profile</a>-->
+          <div class="col-lg-4 col-sm-12 col-md-4" *ngFor='let i of cards' >
+            <div class="card" >
+              <img class="card-img-top" src={{i.image}} alt="Card image">
+              <div class="card-body" style="height: 150px;">
+                <h4 class="card-title">{{i.title}}</h4>
+                <p class="card-text">{{i.summary}}
+                  <br>
+                </p>
+              </div>
             </div>
-          </div>
-          </div>
-              <div class="col-lg-4 col-sm-12 col-md-4">
-          <div class="card" >
-            <img class="card-img-top" src="../assets/hloan.jpg" alt="Card image">
-            <div class="card-body">
-              <h4 class="card-title">Home Loan</h4>
-              <p class="card-text">We provide you home Loans at very economical rate of interest and less liability.
-                <br>
-              </p>
-              <!--<a href="#" class="btn btn-primary">See Profile</a>-->
             </div>
-          </div>
-          </div>
-              <div class="col-lg-4 col-sm-12 col-md-4">
-          <div class="card" >
-            <img class="card-img-top" src="../assets/eloan.png" alt="Card image">
-            <div class="card-body">
-              <h4 class="card-title">Education Loan</h4>
-              <p class="card-text">Money should not be a barrier in Education.We Provide you study loan at cheaper rates and less Documentation</p>
-              <!--<a href="#" class="btn btn-primary">See Profile</a>-->
-            </div>
-          </div>
-          </div>
-      
+              
       </div>
       </div>
     
@@ -53,7 +29,7 @@
         
             <button type="button" class="btn btn-warning justify-content-center m-1" data-toggle="modal" data-target="#myModal">Loan Calculator</button>
         
-            <button type="button" class="btn btn-warning justify-content-center m-1">Loan History</button>
+            <button type="button" routerLink='/loanHistory' class="btn btn-warning justify-content-center m-1">Loan History</button>
         
         </div>
     </section>

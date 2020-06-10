@@ -1,10 +1,9 @@
 <div class="login-page">
 
     <h1 class="text-capitalize text-center m-0  " style="background-color: yellow; border-style: solid;">Loan Rate</h1>
-    <p class="text-capitalize text-center m-0" style="background-color: red;border-style: solid;">Loan Rate is 14.75% if Principal Amount is greater than Rs.1 lakh</p>
-    <p class="text-capitalize text-center m-0" style="background-color: green;border-style: solid;">Loan Rate is 12.75% if Principal Amount is greater than Rs.5 lakh</p>
-    <p class="text-capitalize text-center m-0" style="background-color: wheat;border-style:solid;">Loan Rate is 10.75% if Principal Amount is greater than Rs.10 lakh</p>
-
+    <div *ngFor="let i of loanCards">
+    <p class="text-capitalize text-center m-0" style="background-color: wheat;border-style:solid;">Loan Rate is {{i.rate}}% if Principal Amount is greater than Rs.{{i.amount}} lakh</p>
+    </div>
     <mat-card class="mat-elevation-z12 mat1">
         <mat-card-title style="text-align:center;">Loan Register</mat-card-title>
         
