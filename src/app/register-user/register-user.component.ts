@@ -1,3 +1,4 @@
+import { RegisterService } from './../service/register.service';
 import { HardcodedAuthenticationService } from './../service/hardcoded-authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -12,7 +13,7 @@ export class RegisterUserComponent implements OnInit {
   
 
   //use of Dependency Injection
-  constructor(private router:Router,private HardcodedAuthenticationService:HardcodedAuthenticationService) { }
+  constructor(private router:Router,private HardcodedAuthenticationService:HardcodedAuthenticationService,private rs:RegisterService) { }
   
   errorMessage:string="Invalid Login Credentials.";
 
@@ -32,10 +33,6 @@ export class RegisterUserComponent implements OnInit {
       'password': new FormControl(null,[Validators.required,Validators.minLength(6),Validators.maxLength(20)])
    });
   }
-  
-  onSubmit():void{
-    console.log(this.signupForm);
-  }
 
   inValidLogin:boolean =false;
 
@@ -50,5 +47,15 @@ export class RegisterUserComponent implements OnInit {
       this.inValidLogin=true;
     return false;}
   }
+  
+  
+  onSubmit():void{
+        this.rs.register(this.signinForm.value).subscribe(
+          res=> console.log('success',res),
+          err=> console.log('Error!',err)
+        );
+  }
+
+
 
 }

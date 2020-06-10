@@ -9,7 +9,7 @@
         
           
               <mat-card-content class="mat3">
-                <form action="">
+                <form action="" [formGroup]="registerForm">
                   <mat-form-field class="mat2">
                     <input
                       matInput
@@ -17,11 +17,11 @@
                       type="number"
                       required
                       name="Amount"
-                      ngModel
-                      #Amount="ngModel">
+                      formControlName="amount"
+                      >
                       <mat-error
-                      *ngIf="Amount.errors.required">
-                      Amount is required
+                      *ngIf="!registerForm.get('amount').valid && registerForm.get('amount').touched">
+                      Please Enter a Valid Amount
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field class="mat2">
@@ -30,13 +30,11 @@
                       placeholder="Rate without %"
                       type="number"
                       required
-                      
                       name="rate"
-                      ngModel
-                      #rate="ngModel">
+                      formControlName="rate">
                       <mat-error
-                      *ngIf="rate.errors.required">
-                      Rate is required
+                      *ngIf="!registerForm.get('rate').valid && registerForm.get('rate').touched">
+                      Please Enter a Valid rate
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field class="mat2">
@@ -46,11 +44,23 @@
                       type="number"
                       required
                       name="time"
-                      ngModel
-                      #time="ngModel">
+                      formControlName="time">
                       <mat-error
-                      *ngIf="time.errors.required">
-                      Time is required
+                      *ngIf="!registerForm.get('time').valid && registerForm.get('time').touched">
+                      Please enter a valid time
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="mat2">
+                    <input
+                      matInput
+                      placeholder="Monthy Savings"
+                      type="number"
+                      required
+                      name="monthlySavings"
+                      formControlName="mothlySavings">
+                      <mat-error
+                      *ngIf="!registerForm.get('mothlySavings').valid && registerForm.get('mothlySavings').touched">
+                      Please enter valid Monthy Savings
                     </mat-error>
                   </mat-form-field>
                   

@@ -4,7 +4,7 @@
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
         <mat-tab label="Sign In">
             <mat-card-content class="mat3">
-              <form action="" [formGroup]="signinForm">
+              <form action="" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
                 <mat-error
                   *ngIf="inValidLogin">
                   {{errorMessage}}

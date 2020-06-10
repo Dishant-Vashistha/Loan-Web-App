@@ -1,4 +1,4 @@
-import { loanCard } from './../home/home.component';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanRegisterComponent implements OnInit {
   loanCards:LoanCard[]=[];
-
   constructor() { }
-
+  registerForm:FormGroup;
   ngOnInit(): void {
     this.loanCards.push({
        rate:14.75,
@@ -24,7 +23,15 @@ export class LoanRegisterComponent implements OnInit {
     rate:10.75,
     amount:10
     });
+    this.registerForm =new FormGroup({
+      'amount' : new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")]),
+      'rate': new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")]),
+      'time': new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")]),
+      'monthlySavings': new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")])
+   });
   }
+
+
 
 }
 interface LoanCard{
