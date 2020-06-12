@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   cards:loanCard[]=[];
-
   constructor() {
     this.cards.push({
       title: 'Car Loan',

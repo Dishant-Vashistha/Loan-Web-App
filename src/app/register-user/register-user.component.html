@@ -4,7 +4,7 @@
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
         <mat-tab label="Sign In">
             <mat-card-content class="mat3">
-              <form action="" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+              <form action="" [formGroup]="signinForm" (ngSubmit)=" !doform.invalid && handleLogin()" #doform="ngForm">
                 <mat-error
                   *ngIf="inValidLogin">
                   {{errorMessage}}
@@ -44,7 +44,6 @@
                   mat-raised-button
                   color="primary"
                   class="login-button"
-                  (click)='handleLogin()'
                   >
                   Sign In
                 </button>
@@ -59,7 +58,7 @@
         </mat-tab>
         <mat-tab label="Sign Up">
           <mat-card-content class="mat3">
-            <form action="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <form action="#" [formGroup]="signupForm" (ngSubmit)="!todoForm.invalid && onSubmit()" #todoForm="ngForm">
               <mat-form-field class="mat2">
                 <input
                   matInput
@@ -80,12 +79,12 @@
                   matInput
                   placeholder="First Name"
                   required
-                  formControlName="fname"
+                  formControlName="firstName"
                   name="fname"
                   >
                 <mat-icon matSuffix>perm_identity</mat-icon>
                 <mat-error
-                  *ngIf="!signupForm.get('fname').valid && signupForm.get('fname').touched">
+                  *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched">
                   FirstName is required
                 </mat-error>
   
@@ -95,12 +94,12 @@
                   matInput
                   placeholder="Last Name"
                   required
-                  formControlName="lname"
+                  formControlName="lastName"
                   name="lname"
                   >
                 <mat-icon matSuffix>perm_identity</mat-icon>
                 <mat-error
-                  *ngIf="!signupForm.get('lname').valid && signupForm.get('lname').touched">
+                  *ngIf="!signupForm.get('lastName').valid && signupForm.get('lastName').touched">
                   LastName is required
                 </mat-error>
   
@@ -155,6 +154,7 @@
           
               <button
                 mat-raised-button
+                type="submit"
                 color="primary"
                 class="login-button">
                 Sign Up

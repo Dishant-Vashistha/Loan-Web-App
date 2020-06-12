@@ -1,3 +1,5 @@
+import { RegisterService } from './service/register.service';
+import { HardcodedAuthenticationService } from './service/hardcoded-authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
@@ -21,6 +23,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LogoutComponent } from './logout/logout.component';
 import { LoanHistoryComponent } from './loan-history/loan-history.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouteGuardService } from './service/route-guard.service';
 
 
 @NgModule({
@@ -51,7 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HardcodedAuthenticationService,RouteGuardService,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

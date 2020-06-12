@@ -1,3 +1,4 @@
+import { loanCard } from './../home/home.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -29,6 +30,8 @@ export class LoanRegisterComponent implements OnInit {
       'time': new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")]),
       'monthlySavings': new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")])
    });
+
+   //console.log(this.loanCards);
   }
 
 

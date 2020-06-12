@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterService {
   
-  _url = 'http://localhost:8080/enroll'
+  _url = 'http://localhost:8080/newUser'
 
   constructor(private http:HttpClient) { }
 
   register(userData){
     //it will return an observable
-    return this.http.post<any>(this._url,userData);
+    return this.http.post(this._url,userData,{responseType:'text' as 'json'});
   }
 }

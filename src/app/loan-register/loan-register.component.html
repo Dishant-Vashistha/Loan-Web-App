@@ -53,13 +53,13 @@
                   <mat-form-field class="mat2">
                     <input
                       matInput
-                      placeholder="Monthy Savings"
+                      placeholder="Monthly Savings"
                       type="number"
                       required
                       name="monthlySavings"
-                      formControlName="mothlySavings">
+                      formControlName="monthlySavings">
                       <mat-error
-                      *ngIf="!registerForm.get('mothlySavings').valid && registerForm.get('mothlySavings').touched">
+                      *ngIf="!registerForm.get('monthlySavings').valid && registerForm.get('monthlySavings').touched">
                       Please enter valid Monthy Savings
                     </mat-error>
                   </mat-form-field>

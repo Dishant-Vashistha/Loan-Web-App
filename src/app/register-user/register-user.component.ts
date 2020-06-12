@@ -22,8 +22,8 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit(): void {
     this.signupForm=new FormGroup({
        'username' : new FormControl(null,[Validators.required,Validators.pattern("^[a-zA-Z0-9_]*$"),Validators.minLength(5)]),
-       'fname': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
-       'lname': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+       'firstName': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+       'lastName': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
        'phone': new FormControl(null,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
        'email' :  new FormControl(null,[Validators.required,Validators.email]),
        'password': new FormControl(null,[Validators.required,Validators.minLength(6)])
@@ -45,17 +45,27 @@ export class RegisterUserComponent implements OnInit {
     }
     else {
       this.inValidLogin=true;
-    return false;}
+      return false;}
   }
   
+  formData: FormData = new FormData();
   
-  onSubmit():void{
-        this.rs.register(this.signinForm.value).subscribe(
-          res=> console.log('success',res),
-          err=> console.log('Error!',err)
-        );
+  onSubmit(){  
+    /*this.formData.append("email", this.signupForm.get('email').value);
+    this.formData.append("password", this.signupForm.get('password').value);
+    this.formData.append("firstName", this.signupForm.get('firstName').value);
+    this.formData.append("lastName", this.signupForm.get('lastName').value);
+    this.formData.append("username", this.signupForm.get('username').value);
+    this.formData.append("phone", this.signupForm.get('phone').value);
+         
+        this.rs.register(this.signupForm.value).subscribe(
+          response=> console.log('success',response)
+        );*/
+        console.log(this.signupForm.value);
+        return true;
   }
 
 
 
 }
+
