@@ -5,19 +5,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HardcodedAuthenticationService {
- // email:string='abc@gmail.com';
-  //password:string='123456';
+ email:string='abc@gmail.com';
+ password:string='123456';
   constructor(private http:HttpClient) { }
   _url='http://localhost:8080/newUser';
   authenticate(email:string,password:string){
-     /*if(email===this.email && password===this.password){
+     if(email===this.email && password===this.password){
             
       sessionStorage.setItem('authenticatedUser',email);
 
             return true;
      }
      else return false;
-     */
+     
       var formData:FormData=new FormData();
       formData.append('email',email);
       formData.append('password',password);

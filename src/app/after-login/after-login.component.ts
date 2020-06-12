@@ -12,12 +12,12 @@ export class AfterLoginComponent implements OnInit {
     this.cards.push({
       title: 'Car Loan',
       image:' ../assets/cloan.png',
-      summary:'We provide you car loan at cheaper rate of interest and less Documentation'
+      summary:'We provide you car loan at cheaper rate of interest and less Documentation . Now Everyone will own a Car!!'
     });
     this.cards.push({
       title: 'Home Loan',
       image:"../assets/hloan.jpg",
-      summary:'We provide you home Loans at very economical rate of interest and less liability.'
+      summary:'We provide you home Loans at very economical rates and less liability.Now Everyone will have their own home!'
     });
     this.cards.push({
       title: 'Education Loan',

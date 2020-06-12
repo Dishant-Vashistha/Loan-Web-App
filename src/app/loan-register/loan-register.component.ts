@@ -1,6 +1,8 @@
+import { LoanService } from './../service/loan-service.service';
 import { loanCard } from './../home/home.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { loanUser } from '../model/model';
 
 @Component({
   selector: 'app-loan-register',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanRegisterComponent implements OnInit {
   loanCards:LoanCard[]=[];
-  constructor() { }
+  constructor(private ls:LoanService) { }
   registerForm:FormGroup;
   ngOnInit(): void {
     this.loanCards.push({
@@ -31,7 +33,25 @@ export class LoanRegisterComponent implements OnInit {
       'monthlySavings': new FormControl(null,[Validators.required,Validators.pattern("[0-9]*")])
    });
 
-   //console.log(this.loanCards);
+  }
+
+  onSubmit(){
+    let user:loanUser={
+      loanAmount:this.registerForm.get('amount').value,
+      rate:this.registerForm.get('rate').value,
+      time:this.registerForm.get('time').value,
+      savings:this.registerForm.get('monthlySavings').value,
+    }
+
+     let ans:Boolean = this.ls.loanRegister(user) ;
+
+     if(ans===true){
+       alert("You have succesfull Applied for the loan");
+     }
+     else{
+      alert("Loan is not Accepted");
+     }
+
   }
 
 

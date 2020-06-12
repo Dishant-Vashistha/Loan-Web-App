@@ -3,6 +3,7 @@ import { HardcodedAuthenticationService } from './../service/hardcoded-authentic
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-register-user',
@@ -13,7 +14,7 @@ export class RegisterUserComponent implements OnInit {
   
 
   //use of Dependency Injection
-  constructor(private router:Router,private HardcodedAuthenticationService:HardcodedAuthenticationService,private rs:RegisterService) { }
+  constructor(private router:Router,private hs:HardcodedAuthenticationService,private rs:RegisterService) { }
   
   errorMessage:string="Invalid Login Credentials.";
 
@@ -37,7 +38,7 @@ export class RegisterUserComponent implements OnInit {
   inValidLogin:boolean =false;
 
   handleLogin():boolean{
-    if(this.HardcodedAuthenticationService.authenticate(this.signinForm.get('email').value,this.signinForm.get('password').value))
+    if(this.hs.authenticate(this.signinForm.get('email').value,this.signinForm.get('password').value))
     {
       //Redirect to After-Login-Page
       this.router.navigate(['after-login']);
@@ -48,21 +49,26 @@ export class RegisterUserComponent implements OnInit {
       return false;}
   }
   
-  formData: FormData = new FormData();
+  
   
   onSubmit(){  
-    /*this.formData.append("email", this.signupForm.get('email').value);
-    this.formData.append("password", this.signupForm.get('password').value);
-    this.formData.append("firstName", this.signupForm.get('firstName').value);
-    this.formData.append("lastName", this.signupForm.get('lastName').value);
-    this.formData.append("username", this.signupForm.get('username').value);
-    this.formData.append("phone", this.signupForm.get('phone').value);
-         
-        this.rs.register(this.signupForm.value).subscribe(
-          response=> console.log('success',response)
-        );*/
-        console.log(this.signupForm.value);
-        return true;
+    let formData: FormData = new FormData();
+    formData.append("email", this.signupForm.get('email').value);
+    formData.append("password", this.signupForm.get('password').value);
+    formData.append("firstName", this.signupForm.get('firstName').value);
+    formData.append("lastName", this.signupForm.get('lastName').value);
+    formData.append("username", this.signupForm.get('username').value);
+    formData.append("phone", this.signupForm.get('phone').value);
+        
+        
+     let result:boolean = this.rs.register(formData);
+     
+     if(result==true){
+       alert("User Registered SuccessFully!! Now You can SignIn");
+     }
+     else{
+       alert("UserName already Exists!!")
+     }
   }
 
 

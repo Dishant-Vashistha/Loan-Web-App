@@ -10,8 +10,15 @@ export class RegisterService {
 
   constructor(private http:HttpClient) { }
 
-  register(userData){
+  register(userData:FormData):boolean{
     //it will return an observable
-    return this.http.post(this._url,userData,{responseType:'text' as 'json'});
+    try{
+    this.http.post(this._url,userData,{responseType:'text' as 'json'}).subscribe(
+      response=>{ return true;},
+      error=> {return false;}
+    );
+    }catch(err){
+      return false;
+    }
   }
 }

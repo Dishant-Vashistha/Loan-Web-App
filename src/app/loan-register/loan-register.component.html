@@ -9,7 +9,7 @@
         
           
               <mat-card-content class="mat3">
-                <form action="" [formGroup]="registerForm">
+                <form action="" [formGroup]="registerForm"  (ngSubmit)="!todoform.invalid && onSubmit()"  #todoform="ngForm">
                   <mat-form-field class="mat2">
                     <input
                       matInput
@@ -67,7 +67,9 @@
                   <button
                     mat-raised-button
                     color="primary"
-                    class="login-button">
+                    class="login-button"
+                    type="submit"
+                    >
                     Apply
                   </button>
     
